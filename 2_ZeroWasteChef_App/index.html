@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#16a34a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="বেঁচে যাওয়া খাবার দিয়ে ঝটপট পুষ্টিকর রেসিপি তৈরি ও অর্থ সাশ্রয়ের স্মার্ট নির্দেশিকা। ইন্টারনেট ছাড়াই সম্পূর্ণ অফলাইন।">
+  <title>জিরো ওয়েস্ট শেফ | খাবার অপচয় রোধ ও রেসিপি</title>
+
+  <!-- PWA Manifest & Icons -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <div class="logo-icon">👨‍🍳</div>
+        <div class="logo-text">
+          <h1>জিরো ওয়েস্ট শেফ</h1>
+          <span class="tagline">খাবার অপচয় রোধ ও কিচেন সেভার</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <span class="eco-badge" id="offlineBadge" title="ইন্টারনেট ছাড়াই চলবে">
+          <span class="pulse-dot"></span> অফলাইন রেডি
+        </span>
+        <button id="installBtn" class="btn-install" style="display: none;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>ইনস্টল</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Lifetime Savings Card -->
+    <section class="savings-banner">
+      <div class="savings-card">
+        <div class="savings-info">
+          <span class="savings-label">🌟 আপনার মোট অপচয় রোধ ও সঞ্চয়</span>
+          <div class="savings-numbers">
+            <div class="stat-item">
+              <span class="stat-value" id="totalGramsSaved">০ গ্রাম</span>
+              <span class="stat-sub">খাবার নষ্ট হওয়া থেকে রক্ষা</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-value" id="totalTakaSaved">৳ ০</span>
+              <span class="stat-sub">পরিবারের অর্থ সাশ্রয়</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 1: Ingredient Picker -->
+    <section class="pantry-section">
+      <div class="section-head">
+        <div>
+          <h2>১. ঘরে কী কী বেঁচে আছে বা পড়ে আছে?</h2>
+          <p class="section-sub">নিচে ট্যাপ করে উপাদানগুলো সিলেক্ট করুন—রেসিপি স্বয়ংক্রিয়ভাবে মিলবে:</p>
+        </div>
+        <button id="resetIngredientsBtn" class="btn-reset" title="সব আনচেক করুন">রিসেট</button>
+      </div>
+
+      <!-- Ingredient Chips Grid -->
+      <div class="ingredients-grid" id="ingredientsGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <div class="selected-summary-bar" id="selectedSummaryBar" style="display: none;">
+        <span id="selectedCountText">০টি উপকরণ নির্বাচিত</span>
+        <span class="hint-text">নিচে রেসিপি দেখুন 👇</span>
+      </div>
+    </section>
+
+    <!-- Main Navigation Tabs: Recipes vs Kitchen Hacks -->
+    <div class="main-tabs">
+      <button class="tab-btn active" id="tabRecipesBtn">🍲 রেসিপিসমূহ (<span id="recipeCountBadge">১২</span>)</button>
+      <button class="tab-btn" id="tabHacksBtn">💡 কিচেন হ্যাকস ও সংরক্ষণ (৬)</button>
+    </div>
+
+    <!-- Section: Recipes List View -->
+    <section class="recipes-section" id="recipesSection">
+      <!-- Search & Filter Bar -->
+      <div class="filter-bar">
+        <div class="search-input-wrap">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="search" id="recipeSearch" placeholder="রেসিপি খুঁজুন (যেমন: ফ্রাইড রাইস, কাটলেট, উপমা...)" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="recipes-grid" id="recipesGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="no-recipes" id="noRecipes" style="display: none;">
+        <div class="no-recipes-icon">🔍</div>
+        <h3>কোনো রেসিপি মেলেনি</h3>
+        <p>অন্য কোনো উপাদান নির্বাচন করুন অথবা সব উপাদান রিসেট করে সমস্ত রেসিপি দেখুন।</p>
+        <button class="btn-view-all" id="btnViewAll">সমস্ত রেসিপি দেখুন</button>
+      </div>
+    </section>
+
+    <!-- Section: Kitchen Hacks View (Initially Hidden) -->
+    <section class="hacks-section" id="hacksSection" style="display: none;">
+      <div class="hacks-intro">
+        <h3>খাবার দীর্ঘদিন ভালো রাখার ঘরোয়া জাদুকরী টিপস</h3>
+        <p>সঠিক উপায়ে সংরক্ষণ করলে খাবার পচে না এবং অপচয় শতভাগ কমানো সম্ভব:</p>
+      </div>
+      <div class="hacks-grid" id="hacksGrid">
+        <!-- Injected dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Recipe Details Modal -->
+  <div class="modal-overlay" id="recipeModal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon" id="modalRecipeIcon">🍳</span>
+          <div>
+            <h3 class="modal-title" id="modalRecipeTitle">স্পাইসি এগ ফ্রাইড রাইস</h3>
+            <span class="modal-sub" id="modalRecipeSub">Spicy Egg Fried Rice</span>
+          </div>
+        </div>
+        <button class="modal-close" id="modalCloseBtn">✕</button>
+      </div>
+
+      <div class="modal-meta-bar">
+        <div class="meta-item">⏱️ <span id="modalRecipeTime">১০ মিনিট</span></div>
+        <div class="meta-item">⚡ <span id="modalRecipeDiff">সহজ</span></div>
+        <div class="meta-item highlight-green">🌱 <span id="modalRecipeSaved">৩০০ গ্রাম সাশ্রয়</span></div>
+      </div>
+
+      <!-- Audio Reader Bar -->
+      <div class="modal-audio-bar">
+        <span>🔊 বাংলায় রান্নার নিয়ম শুনুন:</span>
+        <button id="recipeVoiceBtn" class="btn-voice">
+          <span class="voice-btn-text">শুনুন</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p class="recipe-desc" id="modalRecipeDesc"></p>
+
+        <!-- Required Ingredients -->
+        <div class="recipe-block">
+          <h4>🛒 প্রয়োজনীয় উপকরণ:</h4>
+          <ul class="ingredients-needed-list" id="modalIngredientsList"></ul>
+        </div>
+
+        <!-- Step by Step instructions -->
+        <div class="recipe-block">
+          <h4>👨‍🍳 ধাপে ধাপে তৈরির নিয়ম:</h4>
+          <ol class="steps-ordered-list" id="modalStepsList"></ol>
+        </div>
+
+        <!-- Pro Tip Box -->
+        <div class="pro-tip-box" id="modalProTipBox">
+          <strong>💡 শেফের স্পেশাল টিপ:</strong>
+          <span id="modalProTipText"></span>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-cook-done" id="btnCookDone">
+          <span>🎉 আমি রান্না করেছি! (সাশ্রয় পয়েন্ট যোগ করুন)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PWA Install Banner -->
+  <div class="install-banner" id="installBanner" style="display: none;">
+    <div class="install-banner-content">
+      <img src="icons/icon-192.png" alt="App Icon" class="install-banner-img">
+      <div>
+        <strong>মোবাইলে অ্যাপ ইনস্টল করুন</strong>
+        <p>ইন্টারনেট ছাড়াই এক ক্লিকে কিচেনে ব্যবহারের জন্য</p>
+      </div>
+    </div>
+    <div class="install-banner-actions">
+      <button id="bannerInstallBtn" class="btn-banner-install">ইনস্টল</button>
+      <button id="bannerDismissBtn" class="btn-banner-dismiss">পরে</button>
+    </div>
+  </div>
+
+  <!-- Success Toast Notification -->
+  <div class="toast-notice" id="toastNotice"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p><strong>জিরো ওয়েস্ট শেফ</strong> • সুস্থ থাকুন, খাবার বাঁচান, টাকা সাশ্রয় করুন</p>
+    <p class="disclaimer">প্রতিটি ছোট ছোট সচেতনতাই আমাদের পৃথিবী ও পরিবারের জন্য বিশাল পরিবর্তন নিয়ে আসে।</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="recipes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

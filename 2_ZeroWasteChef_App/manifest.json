@@ -1,0 +1,43 @@
+{
+  "name": "জিরো ওয়েস্ট শেফ - খাবার অপচয় রোধ ও রেসিপি",
+  "short_name": "জিরো-শেফ",
+  "description": "বেঁচে যাওয়া খাবার দিয়ে ঝটপট পুষ্টিকর রেসিপি তৈরি ও টাকা সাশ্রয়ের স্মার্ট নির্দেশিকা",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#16a34a",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["food", "lifestyle", "utilities"]
+}

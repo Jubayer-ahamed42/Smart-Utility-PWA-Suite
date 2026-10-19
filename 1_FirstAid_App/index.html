@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#e11d48">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="বিপদের মুহূর্তে সঠিক প্রাথমিক চিকিৎসা ও জীবনরক্ষাকারী অফলাইন নির্দেশিকা। ইন্টারনেট ছাড়াই সম্পূর্ণ কার্যকর।">
+  <title>মুহূর্তের ফার্স্ট-এইড | অফলাইন জরুরি প্রাথমিক চিকিৎসা</title>
+
+  <!-- PWA Manifest & Icons -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top App Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M19 10.5h-5.5V5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v5.5H5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5h5.5V19c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-5.5H19c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5z"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <h1>মুহূর্তের ফার্স্ট-এইড</h1>
+          <span class="tagline">অফলাইন জীবনরক্ষাকারী নির্দেশিকা</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <span class="offline-badge" id="offlineBadge" title="ইন্টারনেট ছাড়াই চলবে">
+          <span class="pulse-dot"></span> অফলাইন রেডি
+        </span>
+        <button id="installBtn" class="btn-install" style="display: none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>অ্যাপ ইনস্টল</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Emergency Quick Hotline Bar -->
+  <div class="emergency-bar">
+    <div class="emergency-bar-inner">
+      <div class="emergency-alert-tag">
+        <span class="alert-blink">🚨</span> <strong>জরুরি হেল্পলাইন:</strong>
+      </div>
+      <div class="hotline-links">
+        <a href="tel:999" class="hotline-chip chip-999" title="জাতীয় জরুরি সেবা কল">
+          <span class="chip-num">৯৯৯</span>
+          <span class="chip-label">পুলিশ/অ্যাম্বুলেন্স</span>
+        </a>
+        <a href="tel:16263" class="hotline-chip chip-health" title="স্বাস্থ্য বাতায়ন সরকারি স্বাস্থ্য সেবা">
+          <span class="chip-num">১৬২৬৩</span>
+          <span class="chip-label">স্বাস্থ্য বাতায়ন</span>
+        </a>
+        <button id="btnCprRhythm" class="hotline-chip chip-cpr" title="সিপিআরের সঠিক রিদম শুনুন">
+          <span class="chip-num">❤️</span>
+          <span class="chip-label">সিপিআর বিট (100 BPM)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="main-content">
+    <!-- Hero / Search Section -->
+    <section class="search-section">
+      <div class="search-box">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="search" 
+          id="searchInput" 
+          placeholder="কী সমস্যা হয়েছে? (যেমন: পোড়া, সাপে কাটা, অজ্ঞান, শক...)" 
+          autocomplete="off"
+        >
+        <button id="clearSearchBtn" class="clear-search" style="display: none;">✕</button>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="category-scroll">
+        <div class="category-pills" id="categoryPills">
+          <button class="pill-btn active" data-category="all">সবগুলো (১৬)</button>
+          <button class="pill-btn" data-category="home">🏠 দৈনন্দিন ঘরের বিপদ</button>
+          <button class="pill-btn" data-category="bites">🐍 বিষাক্ত কামড় ও হুল</button>
+          <button class="pill-btn" data-category="critical">❤️‍🩹 চরম জরুরি অবস্থা</button>
+          <button class="pill-btn" data-category="trauma">⚡ পরিবেশ ও আঘাত</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency Cases Grid -->
+    <section class="cases-section">
+      <div class="section-title-bar">
+        <h2 id="sectionTitle">জরুরি স্বাস্থ্য সমস্যাসমূহ</h2>
+        <span class="item-count" id="itemCount">১৬টি বিষয়</span>
+      </div>
+
+      <div class="cases-grid" id="casesGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- No Results State -->
+      <div class="no-results" id="noResults" style="display: none;">
+        <div class="no-results-icon">🔍</div>
+        <h3>কোনো তথ্য খুঁজে পাওয়া যায়নি</h3>
+        <p>অন্য কোনো শব্দ দিয়ে সার্চ করুন অথবা সরাসরি নিচের জরুরি নম্বরে কল করুন।</p>
+        <a href="tel:999" class="btn-primary-call">জরুরি ৯৯৯ কল দিন</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Detail Modal / Drawer -->
+  <div class="modal-overlay" id="detailModal" aria-hidden="true">
+    <div class="modal-card">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon" id="modalIcon">🔥</span>
+          <div>
+            <span class="modal-category" id="modalCategory">দৈনন্দিন দুর্ঘটনা</span>
+            <h3 class="modal-title" id="modalTitle">আগুনে বা গরম পানিতে পোড়া</h3>
+            <span class="modal-sub" id="modalSub">Burns & Scalds</span>
+          </div>
+        </div>
+        <button class="modal-close" id="modalCloseBtn" aria-label="বন্ধ করুন">✕</button>
+      </div>
+
+      <!-- Quick Audio Bar -->
+      <div class="modal-audio-bar">
+        <div class="audio-status">
+          <span class="audio-wave-icon">🔊</span>
+          <span id="audioStatusText">জরুরি বাংলায় শুনুন:</span>
+        </div>
+        <button id="voicePlayBtn" class="btn-voice">
+          <span class="voice-btn-text">শুনুন</span>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <!-- Quick Summary Box -->
+        <div class="quick-summary-box">
+          <strong>⚡ একনজরে করণীয়:</strong>
+          <p id="modalQuickSummary">পোড়া জায়গায় সাথে সাথে একটানা ১৫-২০ মিনিট সাধারণ কলের পানি ঢালুন।</p>
+        </div>
+
+        <!-- Section: Do's (করণীয়) -->
+        <div class="detail-block block-dos">
+          <div class="block-heading">
+            <span class="block-icon do-icon">✓</span>
+            <h4>অবিলম্বে কী করবেন (সঠিক পদক্ষেপ)</h4>
+          </div>
+          <ol class="steps-list" id="modalDosList">
+            <!-- Injected via JS -->
+          </ol>
+        </div>
+
+        <!-- Section: Don'ts (বর্জনীয় / মারাত্মক ভুল) -->
+        <div class="detail-block block-donts">
+          <div class="block-heading">
+            <span class="block-icon dont-icon">✕</span>
+            <h4>মারাত্মক ভুল! যা ভুলেও করবেন না</h4>
+          </div>
+          <ul class="warning-list" id="modalDontsList">
+            <!-- Injected via JS -->
+          </ul>
+        </div>
+
+        <!-- Section: Hospital Red Flags -->
+        <div class="detail-block block-hospital">
+          <div class="block-heading">
+            <span class="block-icon hospital-icon">🏥</span>
+            <h4>কখন দ্রুত হাসপাতালে নেবেন</h4>
+          </div>
+          <ul class="hospital-list" id="modalHospitalList">
+            <!-- Injected via JS -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modal Footer Call Action -->
+      <div class="modal-footer">
+        <a href="tel:999" class="btn-emergency-action">
+          <span>🚨 সাহায্য দরকার? ৯৯৯ ডায়াল করুন</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CPR Beat Metronome Modal -->
+  <div class="modal-overlay" id="cprModal" aria-hidden="true">
+    <div class="modal-card cpr-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">❤️‍🩹</span>
+          <div>
+            <h3 class="modal-title">সিপিআর স্পিড গাইড</h3>
+            <span class="modal-sub">সঠিক রিদমে বুকের চাপ বজায় রাখুন (১০০-১২০ BPM)</span>
+          </div>
+        </div>
+        <button class="modal-close" id="cprCloseBtn">✕</button>
+      </div>
+      <div class="cpr-body">
+        <p class="cpr-instructions">
+          রোগী অচেতন ও শ্বাসহীন হলে বুকের ঠিক মাঝখানে দুই হাতের তালু দিয়ে নিচের স্পন্দনের তালে তালে প্রতি মিনিটে ১০০-১২০ বার জোরে চাপ দিন (Push Hard & Fast)।
+        </p>
+        <div class="cpr-visualizer">
+          <div class="cpr-heart" id="cprHeart">💓</div>
+          <div class="cpr-bpm" id="cprBpmCount">১১০ BPM</div>
+          <span class="cpr-note">প্রতিটি বিটের সাথে বুকে ২ ইঞ্চি গভীরে চাপুন</span>
+        </div>
+        <button id="cprToggleBtn" class="btn-cpr-toggle">▶ বিট চালু করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PWA Install Guide Bottom Banner -->
+  <div class="install-banner" id="installBanner" style="display: none;">
+    <div class="install-banner-content">
+      <img src="icons/icon-192.png" alt="App Icon" class="install-banner-img">
+      <div>
+        <strong>মোবাইলে ইনস্টল করুন</strong>
+        <p>ইন্টারনেট ছাড়াই এক ক্লিকে অফলাইনে ব্যবহারের জন্য</p>
+      </div>
+    </div>
+    <div class="install-banner-actions">
+      <button id="bannerInstallBtn" class="btn-banner-install">ইনস্টল</button>
+      <button id="bannerDismissBtn" class="btn-banner-dismiss">পরে</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p><strong>মুহূর্তের ফার্স্ট-এইড</strong> • একটি সম্পূর্ণ অফলাইন জীবনরক্ষাকারী প্রযুক্তি</p>
+    <p class="disclaimer">সতর্কতা: এটি প্রাথমিক চিকিৎসার নির্দেশিকা। গুরুতর দুর্ঘটনায় যত দ্রুত সম্ভব পেশাদার চিকিৎসকের শরণাপন্ন হোন।</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

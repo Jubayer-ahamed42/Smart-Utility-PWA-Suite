@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#1d4ed8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="প্রতিটি যন্ত্রের সঠিক ওয়াট হিসাব করে নিখুঁত বিদ্যুৎ বিল নির্ণয় ও হাজার হাজার টাকা সাশ্রয়ের স্মার্ট নির্দেশিকা।">
+  <title>ওয়াট-সেভার | স্মার্ট বিদ্যুৎ বিল ও সাশ্রয়ী ক্যালকুলেটর</title>
+
+  <!-- PWA Manifest & Icons -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <div class="logo-icon">⚡</div>
+        <div class="logo-text">
+          <h1>ওয়াট-সেভার</h1>
+          <span class="tagline">স্মার্ট বিদ্যুৎ বিল ও অপচয় ক্যালকুলেটর</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <span class="offline-badge" id="offlineBadge" title="ইন্টারনেট ছাড়াই চলবে">
+          <span class="pulse-dot"></span> অফলাইন রেডি
+        </span>
+        <button id="installBtn" class="btn-install" style="display: none;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>ইনস্টল</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Live Total Bill & Energy Meter Dashboard -->
+    <section class="dashboard-banner">
+      <div class="dashboard-card">
+        <div class="dash-top-row">
+          <span class="dash-title">📊 আপনার আনুমানিক মাসিক বিদ্যুৎ হিসাব</span>
+          <div class="unit-rate-pill">
+            <label for="unitRateInput">ইউনিট দর: ৳</label>
+            <input type="number" id="unitRateInput" value="7.50" step="0.5" min="3" max="25">
+          </div>
+        </div>
+
+        <div class="dash-metrics-grid">
+          <div class="metric-box highlight-bill">
+            <span class="metric-label">মাসিক সম্ভাব্য বিল</span>
+            <div class="metric-val-wrap">
+              <span class="currency">৳</span>
+              <span class="metric-val" id="totalMonthlyBill">০</span>
+            </div>
+            <span class="metric-sub" id="dailyBillText">দৈনিক খরচ: ৳ ০</span>
+          </div>
+
+          <div class="metric-box">
+            <span class="metric-label">মাসিক মোট বিদ্যুৎ</span>
+            <div class="metric-val-wrap">
+              <span class="metric-val" id="totalMonthlyUnits">০</span>
+              <span class="unit-tag">ইউনিট (KWh)</span>
+            </div>
+            <span class="metric-sub" id="activeAppliancesCount">৬টি যন্ত্র চালু</span>
+          </div>
+        </div>
+
+        <!-- Warning Drain Alert -->
+        <div class="drain-alert-box" id="drainAlertBox" style="display: none;">
+          <span class="drain-icon">🚨</span>
+          <div>
+            <strong>সবচেয়ে বেশি বিল খাচ্ছে:</strong>
+            <span id="drainAlertText">এসি (মোট বিলের ৫২%)</span>
+          </div>
+        </div>
+
+        <!-- Live Visual Segmented Expense Bar -->
+        <div class="breakdown-container">
+          <span class="breakdown-label">খরচের অংশীদারিত্ব (বিলের শতাংশ ভাগ):</span>
+          <div class="breakdown-bar" id="breakdownBar">
+            <!-- Injected dynamically -->
+          </div>
+          <div class="breakdown-legend" id="breakdownLegend">
+            <!-- Legend chips -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Navigation Tabs -->
+    <div class="main-tabs">
+      <button class="tab-btn active" id="tabCalcBtn">⚡ যন্ত্রপাতির ওয়াট হিসাব</button>
+      <button class="tab-btn" id="tabCompareBtn">💡 সাশ্রয়ী তুলনা ও বিএলডিসি হ্যাকস</button>
+    </div>
+
+    <!-- View 1: Appliances Calculator -->
+    <section class="calculator-view" id="calcView">
+      <div class="section-title-row">
+        <h3>ঘরের যন্ত্রপাতি নির্বাচন ও সঠিক ওয়াট নিয়ন্ত্রণ:</h3>
+        <button class="btn-reset-all" id="btnResetDefaults">ডিফল্টে ফিরুন</button>
+      </div>
+
+      <div class="appliances-list" id="appliancesList">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- View 2: Energy Comparison & Hacks (Initially Hidden) -->
+    <section class="comparison-view" id="compareView" style="display: none;">
+      <!-- Interactive BLDC Comparison Calculator -->
+      <div class="bldc-calc-card">
+        <div class="bldc-header">
+          <span class="bldc-badge">⭐ বিশেষ সাশ্রয়ী তুলনা</span>
+          <h3>সাধারণ ফ্যান বনাম বিএলডিসি (BLDC) ফ্যান</h3>
+          <p>আপনার বাসায় কয়টি সাধারণ ৭৫W ফ্যান আছে তা নির্বাচন করুন—দেখুন BLDC ফ্যান লাগালে কত হাজার টাকা বাঁচবে:</p>
+        </div>
+
+        <div class="bldc-controls">
+          <div class="bldc-input-group">
+            <label>বাসায় ফ্যানের সংখ্যা:</label>
+            <div class="qty-stepper">
+              <button class="step-btn" id="bldcQtyMinus">-</button>
+              <span class="qty-num" id="bldcQtyVal">৩</span>
+              <button class="step-btn" id="bldcQtyPlus">+</button>
+            </div>
+          </div>
+          <div class="bldc-input-group">
+            <label>দৈনিক চলার সময়:</label>
+            <div class="qty-stepper">
+              <button class="step-btn" id="bldcHoursMinus">-</button>
+              <span class="qty-num" id="bldcHoursVal">১২ ঘণ্টা</span>
+              <button class="step-btn" id="bldcHoursPlus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bldc-result-box">
+          <div class="bldc-res-item">
+            <span>সাধারণ ফ্যানে বাৎসরিক খরচ:</span>
+            <strong id="bldcNormalCost">৳ ৭,২৯০</strong>
+          </div>
+          <div class="bldc-res-item">
+            <span>বিএলডিসি ফ্যানে বাৎসরিক খরচ:</span>
+            <strong class="green-text" id="bldcModernCost">৳ ২,৭২২</strong>
+          </div>
+          <div class="bldc-savings-highlight">
+            🎉 আপনার প্রতি বছর সরাসরি সাশ্রয় হবে: <strong id="bldcTotalSaved">৳ ৪,৫৬৮ টাকা!</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- AC 26 Degree Comparison -->
+      <div class="ac-calc-card">
+        <div class="ac-header">
+          <span class="bldc-badge badge-blue">❄️ এসি এনার্জি হ্যাক</span>
+          <h3>এসি ১৮° বনাম ২৬° তাপমাত্রা সাশ্রয়</h3>
+        </div>
+        <p>
+          অনেকেই গরমে ঘরে ঢুকে এসি ১৮ ডিগ্রিতে চালিয়ে রাখেন। কিন্তু গবেষণায় প্রমাণিত—এসি <strong>২৬ ডিগ্রিতে চালিয়ে সাথে সিলিং ফ্যান কম গতিতে</strong> চালালে ঘর চমৎকার ঠান্ডা থাকে এবং প্রতি ডিগ্রির জন্য প্রায় ৬% বিদ্যুৎ বাঁচে!
+        </p>
+        <div class="ac-saving-box">
+          💡 গড়ে একটি ১.৫ টন এসিতে প্রতি মাসে <strong>৮০০ থেকে ১,২০০ টাকা পর্যন্ত</strong> বিল কমে যায়!
+        </div>
+      </div>
+
+      <!-- Hacks Grid -->
+      <div class="hacks-grid" id="hacksGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- PWA Install Banner -->
+  <div class="install-banner" id="installBanner" style="display: none;">
+    <div class="install-banner-content">
+      <img src="icons/icon-192.png" alt="App Icon" class="install-banner-img">
+      <div>
+        <strong>মোবাইলে অ্যাপ ইনস্টল করুন</strong>
+        <p>ইন্টারনেট ছাড়াই এক ক্লিকে সবসময় বিদ্যুৎ বিল হিসাব করার জন্য</p>
+      </div>
+    </div>
+    <div class="install-banner-actions">
+      <button id="bannerInstallBtn" class="btn-banner-install">ইনস্টল</button>
+      <button id="bannerDismissBtn" class="btn-banner-dismiss">পরে</button>
+    </div>
+  </div>
+
+  <!-- Toast Notice -->
+  <div class="toast-notice" id="toastNotice"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p><strong>ওয়াট-সেভার</strong> • সচেতনভাবে বিদ্যুৎ ব্যবহার করুন, বিদ্যুৎ অপচয় রোধ করুন</p>
+    <p class="disclaimer">হিসাবটি আদর্শ ওয়াটেজ ও বিদ্যুৎ বণ্টন কোম্পানির গড় ট্যারিফের ভিত্তিতে তৈরি। প্রকৃত বিল ট্যাক্স ও ডিমান্ড চার্জের ওপর নির্ভর করে সামান্য পরিবর্তিত হতে পারে।</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="appliances.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

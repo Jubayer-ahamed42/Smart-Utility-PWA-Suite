@@ -1,0 +1,43 @@
+{
+  "name": "ওয়াট-সেভার - স্মার্ট বিদ্যুৎ বিল ক্যালকুলেটর",
+  "short_name": "ওয়াট-সেভার",
+  "description": "প্রতিটি যন্ত্রের সঠিক ওয়াট হিসাব করে নিখুঁত বিদ্যুৎ বিল নির্ণয় ও সাশ্রয়ের স্মার্ট অ্যাপ",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1329",
+  "theme_color": "#1d4ed8",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["finance", "utilities", "productivity"]
+}
