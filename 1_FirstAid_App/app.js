@@ -66,7 +66,7 @@ function updateOnlineStatus() {
     offlineBadge.style.color = '#34d399';
     offlineBadge.style.borderColor = 'rgba(16, 185, 129, 0.4)';
   } else {
-    offlineBadge.innerHTML = '⚡ সম্পূর্ণ অফলাইন মোড';
+    offlineBadge.innerHTML = '[Fast] সম্পূর্ণ অফলাইন মোড';
     offlineBadge.style.color = '#fbbf24';
     offlineBadge.style.borderColor = 'rgba(245, 158, 11, 0.4)';
   }
@@ -161,8 +161,8 @@ function renderCases() {
         <p class="card-summary">${item.quickSummary}</p>
       </div>
       <div class="card-footer-action">
-        <span class="view-guide-link">জরুরি গাইড দেখুন ➔</span>
-        <span class="card-voice-indicator">🔊 অডিও</span>
+        <span class="view-guide-link">জরুরি গাইড দেখুন -></span>
+        <span class="card-voice-indicator"> অডিও</span>
       </div>
     </article>
   `).join('');
@@ -282,7 +282,7 @@ function playVoice() {
     isSpeaking = true;
     voicePlayBtn.classList.add('speaking');
     voicePlayBtn.querySelector('.voice-btn-text').textContent = 'থামুন';
-    audioStatusText.textContent = '🔊 নির্দেশিকা পড়া হচ্ছে...';
+    audioStatusText.textContent = ' নির্দেশিকা পড়া হচ্ছে...';
   };
 
   utterance.onend = () => stopVoice();
@@ -347,12 +347,12 @@ function toggleCprMetronome() {
     clearInterval(cprInterval);
     cprInterval = null;
     isCprPlaying = false;
-    cprToggleBtn.textContent = '▶ বিট চালু করুন';
+    cprToggleBtn.textContent = ' বিট চালু করুন';
     cprToggleBtn.style.background = 'var(--primary)';
     cprHeart.classList.remove('beating');
   } else {
     isCprPlaying = true;
-    cprToggleBtn.textContent = '⏹ বিট বন্ধ করুন';
+    cprToggleBtn.textContent = ' বিট বন্ধ করুন';
     cprToggleBtn.style.background = '#dc2626';
     cprHeart.classList.add('beating');
 
@@ -432,7 +432,7 @@ window.addEventListener('popstate', (event) => {
   } else {
     // প্রথম চাপ: সতর্কবার্তা দেখাও এবং অ্যাপে ধরে রাখো
     lastBackPressTime = now;
-    showToast('⚠️ অ্যাপ থেকে বের হতে আবার ব্যাক চাপুন');
+    showToast('[!] অ্যাপ থেকে বের হতে আবার ব্যাক চাপুন');
     window.history.pushState({ page: 'home_active' }, '');
   }
 });

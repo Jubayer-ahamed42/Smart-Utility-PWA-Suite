@@ -7,7 +7,7 @@ const firstAidData = [
     titleEn: "Burns & Scalds",
     category: "home",
     categoryName: "দৈনন্দিন দুর্ঘটনা",
-    icon: "🔥",
+    icon: "[Hot]",
     severity: "উচ্চ",
     quickSummary: "পোড়া জায়গায় সাথে সাথে একটানা ১৫-২০ মিনিট সাধারণ কলের পানি ঢালুন।",
     dos: [
@@ -36,7 +36,7 @@ const firstAidData = [
     titleEn: "Choking",
     category: "home",
     categoryName: "দৈনন্দিন দুর্ঘটনা",
-    icon: "🗣️",
+    icon: "",
     severity: "চরম জরুরি",
     quickSummary: "পিঠে ৫ বার জোরে চাপড় দিন, কাজ না হলে হাইমলিচ ম্যানুভার (পেটে চাপ) দিন।",
     dos: [
@@ -63,7 +63,7 @@ const firstAidData = [
     titleEn: "Severe Bleeding",
     category: "home",
     categoryName: "দৈনন্দিন দুর্ঘটনা",
-    icon: "🩸",
+    icon: "",
     severity: "উচ্চ",
     quickSummary: "ক্ষতস্থানে পরিষ্কার কাপড় বা গজ দিয়ে একটানা শক্ত করে চেপে ধরে রাখুন।",
     dos: [
@@ -90,7 +90,7 @@ const firstAidData = [
     titleEn: "Eye Injury & Chemical Splash",
     category: "home",
     categoryName: "দৈনন্দিন দুর্ঘটনা",
-    icon: "👁️",
+    icon: "",
     severity: "উচ্চ",
     quickSummary: "চোখ কোনোভাবেই ঘষা যাবে না; একটানা ১৫ মিনিট পরিষ্কার পানি দিয়ে ধুয়ে ফেলুন।",
     dos: [
@@ -116,7 +116,7 @@ const firstAidData = [
     titleEn: "Nosebleed (Epistaxis)",
     category: "home",
     categoryName: "দৈনন্দিন দুর্ঘটনা",
-    icon: "👃",
+    icon: "",
     severity: "মাঝারি",
     quickSummary: "মাথা সামনের দিকে ঝুঁকিয়ে নাকের নরম অংশ ১০ মিনিট শক্ত করে চেপে ধরুন।",
     dos: [
@@ -144,7 +144,7 @@ const firstAidData = [
     titleEn: "Snake Bite",
     category: "bites",
     categoryName: "কামড় ও হুল",
-    icon: "🐍",
+    icon: "",
     severity: "চরম জরুরি",
     quickSummary: "রোগীকে শান্ত রাখুন, আক্রান্ত অঙ্গ নড়াচড়া বন্ধ করুন এবং দ্রুত হাসপাতালে নিন।",
     dos: [
@@ -170,7 +170,7 @@ const firstAidData = [
     titleEn: "Dog or Cat Bite (Rabies Risk)",
     category: "bites",
     categoryName: "কামড় ও হুল",
-    icon: "🐕",
+    icon: "",
     severity: "উচ্চ",
     quickSummary: "সাবান-পানি দিয়ে একটানা ১৫ মিনিট ক্ষতস্থান ধুয়ে হাসপাতালে অ্যান্টি-রেবিস ভ্যাকসিন নিন।",
     dos: [
@@ -194,7 +194,7 @@ const firstAidData = [
     titleEn: "Bee / Wasp / Scorpion Sting",
     category: "bites",
     categoryName: "কামড় ও হুল",
-    icon: "🐝",
+    icon: "",
     severity: "মাঝারি",
     quickSummary: "হুলটি এটিএম কার্ড দিয়ে চেঁছে তুলুন, বরফের সেঁক দিন এবং ফোলা কমান।",
     dos: [
@@ -220,7 +220,7 @@ const firstAidData = [
     titleEn: "Heart Attack & Hands-Only CPR",
     category: "critical",
     categoryName: "চরম জরুরি অবস্থা",
-    icon: "❤️‍🩹",
+    icon: "",
     severity: "জীবন-সংশয়",
     quickSummary: "রোগী অচেতন হলে এবং শ্বাস না নিলে বুকের মাঝে দুই হাত দিয়ে মিনিটে ১০০-১২০ বার চাপুন।",
     dos: [
@@ -243,7 +243,7 @@ const firstAidData = [
     titleEn: "Heatstroke",
     category: "critical",
     categoryName: "চরম জরুরি অবস্থা",
-    icon: "☀️",
+    icon: "",
     severity: "চরম জরুরি",
     quickSummary: "রোগীকে ছায়ায় নিন, ভেজা কাপড় দিয়ে গা মুছুন এবং বাতাস করে দ্রুত তাপমাত্রা কমান।",
     dos: [
@@ -267,7 +267,7 @@ const firstAidData = [
     titleEn: "Fainting / Syncope",
     category: "critical",
     categoryName: "চরম জরুরি অবস্থা",
-    icon: "💫",
+    icon: "",
     severity: "উচ্চ",
     quickSummary: "রোগীকে সমতল জায়গায় শুইয়ে পা দুটি ১ ফুট উঁচুতে তুলে রাখুন যাতে মস্তিষ্কে রক্ত যায়।",
     dos: [
@@ -293,7 +293,7 @@ const firstAidData = [
     titleEn: "Seizure & Fits",
     category: "critical",
     categoryName: "চরম জরুরি অবস্থা",
-    icon: "⚡",
+    icon: "[Fast]",
     severity: "উচ্চ",
     quickSummary: "রোগীর আশপাশের ধারালো জিনিস সরান, একপাশে কাত করে দিন এবং সময় পর্যবেক্ষণ করুন।",
     dos: [
@@ -322,7 +322,7 @@ const firstAidData = [
     titleEn: "Electric Shock",
     category: "trauma",
     categoryName: "পরিবেশ ও আঘাত",
-    icon: "🔌",
+    icon: "",
     severity: "চরম জরুরি",
     quickSummary: "আগে মেইন সুইচ বন্ধ করুন বা শুকনো কাঠ দিয়ে আলাদা করুন, নিজে খালি হাতে ছোঁবেন না।",
     dos: [
@@ -345,7 +345,7 @@ const firstAidData = [
     titleEn: "Fracture & Sprain",
     category: "trauma",
     categoryName: "পরিবেশ ও আঘাত",
-    icon: "🦴",
+    icon: "",
     severity: "উচ্চ",
     quickSummary: "ভাঙা অঙ্গ সোজা করার চেষ্টা করবেন না; কাঠ বা স্কেল দিয়ে নড়াচড়া বন্ধ রাখুন।",
     dos: [
@@ -369,7 +369,7 @@ const firstAidData = [
     titleEn: "Drowning",
     category: "trauma",
     categoryName: "পরিবেশ ও আঘাত",
-    icon: "🏊",
+    icon: "",
     severity: "চরম জরুরি",
     quickSummary: "পানি থেকে তুলে শ্বাস না পেলে অবিলম্বে ৫ বার মুখে বাতাস দিন এবং সিপিআর চালান।",
     dos: [
@@ -392,7 +392,7 @@ const firstAidData = [
     titleEn: "Poisoning",
     category: "trauma",
     categoryName: "পরিবেশ ও আঘাত",
-    icon: "🧪",
+    icon: "[Test]",
     severity: "চরম জরুরি",
     quickSummary: "জোর করে বমি করাবেন না; বিষের বোতলসহ রোগীকে দ্রুত হাসপাতালে নিন।",
     dos: [

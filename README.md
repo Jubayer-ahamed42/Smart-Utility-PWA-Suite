@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌐 Smart Utility PWA Suite
+# Smart Utility PWA Suite
 
 **A collection of 3 mobile-first, offline-capable Progressive Web Applications solving real-world healthcare, sustainability, and energy optimization challenges.**
 
@@ -14,28 +14,28 @@
 
 ---
 
-## 🚀 Included Applications
+## Included Applications
 
 | Application | Domain | Core Functionality |
 | :--- | :--- | :--- |
-| **🚑 1. FirstAid AI** | `Emergency Healthcare` | Instant, step-by-step emergency medical & first-aid response guide designed to work offline during critical situations. |
-| **🥗 2. ZeroWasteChef** | `Food & Sustainability` | Smart kitchen assistant that transforms leftover household ingredients into structured, nutritious recipes to eliminate food waste. |
-| **⚡ 3. WattSaver** | `Energy & FinTech` | Household electricity consumption analyzer and appliance load calculator that predicts monthly bills and suggests actionable cost-saving habits. |
+| ** 1. FirstAid AI** | `Emergency Healthcare` | Instant, step-by-step emergency medical & first-aid response guide designed to work offline during critical situations. |
+| **[Salad] 2. ZeroWasteChef** | `Food & Sustainability` | Smart kitchen assistant that transforms leftover household ingredients into structured, nutritious recipes to eliminate food waste. |
+| **[Fast] 3. WattSaver** | `Energy & FinTech` | Household electricity consumption analyzer and appliance load calculator that predicts monthly bills and suggests actionable cost-saving habits. |
 
 ---
 
-## 🛠️ Engineering Highlights
+## Engineering Highlights
 
 - **Installable Mobile Experience:** Full Web App Manifest and Service Worker caching allow one-tap home-screen installation on Android and iOS.
 - **Ultra-Fast Performance:** Zero-bloat architecture achieving near-instant First Contentful Paint (FCP) even on slow 3G mobile networks.
 
 ---
 
-## 👨‍💻 Architected By
+## Architected By
 
-**Jubayer Ahamed**  
+**Jubayer Ahamed** 
 *AI Automation & Software Solutions Specialist | Founder @ [Be Smart With AI](https://www.facebook.com/besmartwithaipro)*
 
-- 💬 **WhatsApp Direct:** [+880 1610-594042](https://wa.me/8801610594042)
-- 🌐 **Facebook Page:** [Be Smart With AI](https://www.facebook.com/besmartwithaipro)
-- 📧 **Email:** [sbmc4042@gmail.com](mailto:sbmc4042@gmail.com)
+- **WhatsApp Direct:** [+880 1610-594042](https://wa.me/8801610594042)
+- **Facebook Page:** [Be Smart With AI](https://www.facebook.com/besmartwithaipro)
+- **Email:** [sbmc4042@gmail.com](mailto:sbmc4042@gmail.com)

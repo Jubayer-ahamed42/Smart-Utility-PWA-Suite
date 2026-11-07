@@ -282,7 +282,7 @@ function renderApplianceCards() {
         </div>
 
         <div class="app-tip-box">
-          <span>💡</span> <span>${app.tip}</span>
+          <span>[Tip]</span> <span>${app.tip}</span>
         </div>
       </article>
     `;
@@ -473,7 +473,7 @@ function updateOnlineStatus() {
     offlineBadge.innerHTML = '<span class="pulse-dot"></span> অফলাইন রেডি';
     offlineBadge.style.color = '#38bdf8';
   } else {
-    offlineBadge.innerHTML = '⚡ সম্পূর্ণ অফলাইন মোড';
+    offlineBadge.innerHTML = '[Fast] সম্পূর্ণ অফলাইন মোড';
     offlineBadge.style.color = '#fbbf24';
   }
 }
@@ -540,7 +540,7 @@ window.addEventListener('popstate', () => {
     window.history.back();
   } else {
     lastBackPressTime = now;
-    showToast('⚠️ অ্যাপ থেকে বের হতে আবার ব্যাক চাপুন');
+    showToast('[!] অ্যাপ থেকে বের হতে আবার ব্যাক চাপুন');
     window.history.pushState({ page: 'home_active' }, '');
   }
 });

@@ -796,7 +796,7 @@ body {
 }
 
 .warning-list li::before {
-  content: "⚠️";
+  content: "[!]";
   position: absolute;
   left: 0;
   top: 1px;
@@ -810,7 +810,7 @@ body {
 }
 
 .hospital-list li::before {
-  content: "🚩";
+  content: "";
   position: absolute;
   left: 0;
   top: 1px;

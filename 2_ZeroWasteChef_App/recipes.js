@@ -2,20 +2,20 @@
 
 // ঘরে থাকা সাধারণ উপাদানসমূহ (Pantry Ingredients)
 const ingredientsData = [
-  { id: "rice", name: "বাসি ভাত", icon: "🍚", category: "main", typicalGram: 250, priceSaved: 30 },
-  { id: "roti", name: "বাসি রুটি", icon: "🫓", category: "main", typicalGram: 120, priceSaved: 25 },
-  { id: "egg", name: "ডিম", icon: "🥚", category: "protein", typicalGram: 60, priceSaved: 15 },
-  { id: "potato", name: "আলু (কাঁচা/সেদ্ধ)", icon: "🥔", category: "veg", typicalGram: 150, priceSaved: 20 },
-  { id: "onion", name: "পেঁয়াজ", icon: "🧅", category: "veg", typicalGram: 80, priceSaved: 15 },
-  { id: "chili", name: "কাঁচামরিচ", icon: "🌶️", category: "veg", typicalGram: 20, priceSaved: 5 },
-  { id: "dal", name: "বেঁচে যাওয়া ডাল", icon: "🥣", category: "protein", typicalGram: 200, priceSaved: 35 },
-  { id: "bread", name: "পাউরুটি/টুকরো", icon: "🍞", category: "main", typicalGram: 100, priceSaved: 25 },
-  { id: "carrot", name: "গাজর/সবজির টুকরো", icon: "🥕", category: "veg", typicalGram: 100, priceSaved: 20 },
-  { id: "tomato", name: "টমেটো", icon: "🍅", category: "veg", typicalGram: 100, priceSaved: 20 },
-  { id: "flour", name: "আটা / ময়দা / বেসন", icon: "🌾", category: "main", typicalGram: 100, priceSaved: 15 },
-  { id: "banana", name: "অতিরিক্ত পাকা কলা", icon: "🍌", category: "fruit", typicalGram: 150, priceSaved: 25 },
-  { id: "milk", name: "একটু দুধ / টকদই", icon: "🥛", category: "dairy", typicalGram: 150, priceSaved: 25 },
-  { id: "coriander", name: "ধনেপাতা / পুদিনা", icon: "🌿", category: "veg", typicalGram: 30, priceSaved: 10 }
+  { id: "rice", name: "বাসি ভাত", icon: "", category: "main", typicalGram: 250, priceSaved: 30 },
+  { id: "roti", name: "বাসি রুটি", icon: "", category: "main", typicalGram: 120, priceSaved: 25 },
+  { id: "egg", name: "ডিম", icon: "", category: "protein", typicalGram: 60, priceSaved: 15 },
+  { id: "potato", name: "আলু (কাঁচা/সেদ্ধ)", icon: "", category: "veg", typicalGram: 150, priceSaved: 20 },
+  { id: "onion", name: "পেঁয়াজ", icon: "", category: "veg", typicalGram: 80, priceSaved: 15 },
+  { id: "chili", name: "কাঁচামরিচ", icon: "", category: "veg", typicalGram: 20, priceSaved: 5 },
+  { id: "dal", name: "বেঁচে যাওয়া ডাল", icon: "", category: "protein", typicalGram: 200, priceSaved: 35 },
+  { id: "bread", name: "পাউরুটি/টুকরো", icon: "[Bread]", category: "main", typicalGram: 100, priceSaved: 25 },
+  { id: "carrot", name: "গাজর/সবজির টুকরো", icon: "", category: "veg", typicalGram: 100, priceSaved: 20 },
+  { id: "tomato", name: "টমেটো", icon: "", category: "veg", typicalGram: 100, priceSaved: 20 },
+  { id: "flour", name: "আটা / ময়দা / বেসন", icon: "", category: "main", typicalGram: 100, priceSaved: 15 },
+  { id: "banana", name: "অতিরিক্ত পাকা কলা", icon: "", category: "fruit", typicalGram: 150, priceSaved: 25 },
+  { id: "milk", name: "একটু দুধ / টকদই", icon: "", category: "dairy", typicalGram: 150, priceSaved: 25 },
+  { id: "coriander", name: "ধনেপাতা / পুদিনা", icon: "[Organic]", category: "veg", typicalGram: 30, priceSaved: 10 }
 ];
 
 // জিরো-ওয়েস্ট রেসিপিসমূহ
@@ -27,7 +27,7 @@ const recipesData = [
     titleEn: "Spicy Egg Fried Rice",
     time: "১০ মিনিট",
     difficulty: "সহজ",
-    icon: "🍳",
+    icon: "",
     savedGrams: 300,
     savedTaka: 45,
     requiredIngredients: ["rice", "egg", "onion", "chili"],
@@ -55,7 +55,7 @@ const recipesData = [
     titleEn: "Crispy Rice Cutlet",
     time: "১৫ মিনিট",
     difficulty: "সহজ",
-    icon: "🍘",
+    icon: "",
     savedGrams: 350,
     savedTaka: 50,
     requiredIngredients: ["rice", "potato", "onion", "chili"],
@@ -82,7 +82,7 @@ const recipesData = [
     titleEn: "South-Indian Style Curd Rice",
     time: "৭ মিনিট",
     difficulty: "খুব সহজ",
-    icon: "🥣",
+    icon: "",
     savedGrams: 280,
     savedTaka: 40,
     requiredIngredients: ["rice", "milk"],
@@ -109,7 +109,7 @@ const recipesData = [
     titleEn: "Masala Roti Upma",
     time: "১০ মিনিট",
     difficulty: "সহজ",
-    icon: "🍝",
+    icon: "",
     savedGrams: 200,
     savedTaka: 35,
     requiredIngredients: ["roti", "onion", "chili", "tomato"],
@@ -137,7 +137,7 @@ const recipesData = [
     titleEn: "Crispy Roti Chips / Nachos",
     time: "৮ মিনিট",
     difficulty: "খুব সহজ",
-    icon: "🌮",
+    icon: "",
     savedGrams: 150,
     savedTaka: 30,
     requiredIngredients: ["roti"],
@@ -162,7 +162,7 @@ const recipesData = [
     titleEn: "Quick Egg Roti Roll",
     time: "৭ মিনিট",
     difficulty: "সহজ",
-    icon: "🌯",
+    icon: "",
     savedGrams: 220,
     savedTaka: 40,
     requiredIngredients: ["roti", "egg", "onion", "chili"],
@@ -190,7 +190,7 @@ const recipesData = [
     titleEn: "Leftover Dal Paratha",
     time: "১২ মিনিট",
     difficulty: "সহজ",
-    icon: "🥞",
+    icon: "",
     savedGrams: 300,
     savedTaka: 45,
     requiredIngredients: ["dal", "flour", "onion", "chili"],
@@ -218,7 +218,7 @@ const recipesData = [
     time: "১০ মিনিট",
     titleEn: "Crispy Aloo Chaat",
     difficulty: "সহজ",
-    icon: "🥗",
+    icon: "[Salad]",
     savedGrams: 250,
     savedTaka: 35,
     requiredIngredients: ["potato", "onion", "chili"],
@@ -243,7 +243,7 @@ const recipesData = [
     titleEn: "Crispy Potato Skin Fries",
     time: "৮ মিনিট",
     difficulty: "খুব সহজ",
-    icon: "🍟",
+    icon: "",
     savedGrams: 100,
     savedTaka: 15,
     requiredIngredients: ["potato"],
@@ -269,7 +269,7 @@ const recipesData = [
     titleEn: "Spanish Tortilla / Potato Omelette",
     time: "১২ মিনিট",
     difficulty: "সহজ",
-    icon: "🍳",
+    icon: "",
     savedGrams: 280,
     savedTaka: 40,
     requiredIngredients: ["egg", "potato", "onion"],
@@ -297,7 +297,7 @@ const recipesData = [
     titleEn: "Spicy Bread Upma",
     time: "৮ মিনিট",
     difficulty: "সহজ",
-    icon: "🍞",
+    icon: "[Bread]",
     savedGrams: 180,
     savedTaka: 30,
     requiredIngredients: ["bread", "onion", "chili", "tomato"],
@@ -325,7 +325,7 @@ const recipesData = [
     titleEn: "2-Ingredient Banana Pancake",
     time: "১০ মিনিট",
     difficulty: "খুব সহজ",
-    icon: "🥞",
+    icon: "",
     savedGrams: 220,
     savedTaka: 35,
     requiredIngredients: ["banana", "egg"],
@@ -351,32 +351,32 @@ const recipesData = [
 const kitchenHacksData = [
   {
     title: "ধনেপাতা ১ মাস তাজা রাখার নিয়ম",
-    icon: "🌿",
+    icon: "[Organic]",
     summary: "ধনেপাতার গোড়া কেটে ভালো করে শুকিয়ে একটি কাঁচের বয়ামে বা পেপার টাওয়ালে মুড়িয়ে বক্সে রাখুন। ফ্রিজে রাখলে ১ মাস পর্যন্ত সবুজ ও টাটকা থাকবে।"
   },
   {
     title: "কাঁচামরিচ পচন রোধ করার ট্রিক",
-    icon: "🌶️",
+    icon: "",
     summary: "কাঁচামরিচের বোঁটা হাত দিয়ে ফেলে দিন (বোঁটা থেকেই পচন শুরু হয়)। এরপর কোনো প্লাস্টিক বা কাঁচের বক্সে নিচে টিস্যু রেখে তাতে মরিচ রেখে ফ্রিজে রাখুন।"
   },
   {
     title: "লেবু শুকিয়ে যাওয়া থেকে বাঁচান",
-    icon: "🍋",
+    icon: "",
     summary: "লেবু ফ্রিজে এমনি রাখলে খোসা শক্ত হয়ে শুকিয়ে যায়। একটি পাত্রে সাধারণ পানির ভেতর লেবুগুলো ডুবিয়ে ফ্রিজে রাখুন, এক মাস পরও তাজা রসালো থাকবে।"
   },
   {
     title: "আলু ও পেঁয়াজ কখনোই একসাথে রাখবেন না",
-    icon: "🥔",
+    icon: "",
     summary: "পেঁয়াজ থেকে নির্গত গ্যাস আলুকে দ্রুত নরম ও অঙ্কুরিত করে তোলে। তাই আলু ও পেঁয়াজ সবসময় আলাদা শুকনো ও ছায়াযুক্ত স্থানে রাখুন।"
   },
   {
     title: "কলা দ্রুত পচে কালো হওয়া ঠেকান",
-    icon: "🍌",
+    icon: "",
     summary: "কলার কানের গোড়ায় (Crown) সামান্য প্লাস্টিক র‍্যাপ বা অ্যালুমিনিয়াম ফয়েল পেঁচিয়ে ঝুলিয়ে রাখুন। এতে কলার পাকার গতি ৩ গুণ ধীর হয়ে যায়।"
   },
   {
     title: "বাসি শক্ত ভাতকে একদম ফ্রেশ করার উপায়",
-    icon: "🍚",
+    icon: "",
     summary: "বাসি ভাতে সামান্য কয়েক ফোঁটা পানি ছিটিয়ে ঢাকনা দিয়ে খুব কম আঁচে ২-৩ মিনিট ভাপে রাখুন। ভাত আবার সকালে রান্না করা ভাতের মতো নরম ও গরম হয়ে যাবে!"
   }
 ];

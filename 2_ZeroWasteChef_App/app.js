@@ -73,7 +73,7 @@ function updateOnlineStatus() {
     offlineBadge.innerHTML = '<span class="pulse-dot"></span> অফলাইন রেডি';
     offlineBadge.style.color = '#4ade80';
   } else {
-    offlineBadge.innerHTML = '⚡ সম্পূর্ণ অফলাইন মোড';
+    offlineBadge.innerHTML = '[Fast] সম্পূর্ণ অফলাইন মোড';
     offlineBadge.style.color = '#fbbf24';
   }
 }
@@ -128,7 +128,7 @@ function renderIngredients() {
       <button class="ing-chip ${isSelected ? 'selected' : ''}" onclick="toggleIngredient('${ing.id}')" aria-pressed="${isSelected}">
         <span>${ing.icon}</span>
         <span>${ing.name}</span>
-        <span class="chip-check">✓</span>
+        <span class="chip-check">[OK]</span>
       </button>
     `;
   }).join('');
@@ -150,7 +150,7 @@ function updateSelectedSummary() {
   const count = selectedIngredients.size;
   if (count > 0) {
     selectedSummaryBar.style.display = 'flex';
-    selectedCountText.textContent = `✓ ${toBanglaNumber(count)}টি উপকরণ নির্বাচিত হয়েছে`;
+    selectedCountText.textContent = `[OK] ${toBanglaNumber(count)}টি উপকরণ নির্বাচিত হয়েছে`;
   } else {
     selectedSummaryBar.style.display = 'none';
   }
@@ -228,11 +228,11 @@ function renderRecipes() {
   recipesGrid.innerHTML = filtered.map(({ recipe, isFullMatch, isPartialMatch, matchCount }) => {
     let badgeHtml = '';
     if (isFullMatch) {
-      badgeHtml = `<span class="match-badge badge-full">🟢 ১০০% মিলে গেছে!</span>`;
+      badgeHtml = `<span class="match-badge badge-full">[ON] ১০০% মিলে গেছে!</span>`;
     } else if (isPartialMatch) {
-      badgeHtml = `<span class="match-badge badge-partial">🟡 ${toBanglaNumber(matchCount)}টি উপাদান মিলেছে</span>`;
+      badgeHtml = `<span class="match-badge badge-partial">[WARN] ${toBanglaNumber(matchCount)}টি উপাদান মিলেছে</span>`;
     } else {
-      badgeHtml = `<span class="match-badge badge-all">🍲 রেসিপি</span>`;
+      badgeHtml = `<span class="match-badge badge-all"> রেসিপি</span>`;
     }
 
     const tagsHtml = recipe.requiredIngredients.map((ingId) => {
@@ -246,7 +246,7 @@ function renderRecipes() {
         <div>
           <div class="card-badge-row">
             ${badgeHtml}
-            <span class="time-badge">⏱️ ${recipe.time}</span>
+            <span class="time-badge">[Time] ${recipe.time}</span>
           </div>
           <div class="recipe-header-title">
             <span class="recipe-icon">${recipe.icon}</span>
@@ -261,8 +261,8 @@ function renderRecipes() {
           </div>
         </div>
         <div class="card-bottom-row">
-          <span class="savings-tag">🌱 সাশ্রয়: ~${toBanglaNumber(recipe.savedGrams)} গ্রাম</span>
-          <span class="view-recipe-btn">প্রণালী দেখুন ➔</span>
+          <span class="savings-tag"> সাশ্রয়: ~${toBanglaNumber(recipe.savedGrams)} গ্রাম</span>
+          <span class="view-recipe-btn">প্রণালী দেখুন -></span>
         </div>
       </article>
     `;
@@ -347,7 +347,7 @@ btnCookDone.addEventListener('click', () => {
   updateSavingsDisplay();
   closeRecipeModal(false);
 
-  showToast(`🎉 দারুণ! আপনার মোট সঞ্চয়ে ${toBanglaNumber(activeRecipe.savedGrams)} গ্রাম খাবার ও ৳${toBanglaNumber(activeRecipe.savedTaka)} যোগ হয়েছে!`);
+  showToast(` দারুণ! আপনার মোট সঞ্চয়ে ${toBanglaNumber(activeRecipe.savedGrams)} গ্রাম খাবার ও ৳${toBanglaNumber(activeRecipe.savedTaka)} যোগ হয়েছে!`);
 });
 
 function updateSavingsDisplay() {
@@ -461,7 +461,7 @@ window.addEventListener('popstate', () => {
     window.history.back();
   } else {
     lastBackPressTime = now;
-    showToast('⚠️ অ্যাপ থেকে বের হতে আবার ব্যাক চাপুন');
+    showToast('[!] অ্যাপ থেকে বের হতে আবার ব্যাক চাপুন');
     window.history.pushState({ page: 'home_active' }, '');
   }
 });

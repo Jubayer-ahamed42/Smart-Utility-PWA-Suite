@@ -22,7 +22,7 @@
   <header class="app-header">
     <div class="header-container">
       <div class="logo-area">
-        <div class="logo-icon">👨‍🍳</div>
+        <div class="logo-icon">‍</div>
         <div class="logo-text">
           <h1>জিরো ওয়েস্ট শেফ</h1>
           <span class="tagline">খাবার অপচয় রোধ ও কিচেন সেভার</span>
@@ -50,7 +50,7 @@
     <section class="savings-banner">
       <div class="savings-card">
         <div class="savings-info">
-          <span class="savings-label">🌟 আপনার মোট অপচয় রোধ ও সঞ্চয়</span>
+          <span class="savings-label">আপনার মোট অপচয় রোধ ও সঞ্চয়</span>
           <div class="savings-numbers">
             <div class="stat-item">
               <span class="stat-value" id="totalGramsSaved">০ গ্রাম</span>
@@ -83,14 +83,14 @@
 
       <div class="selected-summary-bar" id="selectedSummaryBar" style="display: none;">
         <span id="selectedCountText">০টি উপকরণ নির্বাচিত</span>
-        <span class="hint-text">নিচে রেসিপি দেখুন 👇</span>
+        <span class="hint-text">নিচে রেসিপি দেখুন v</span>
       </div>
     </section>
 
     <!-- Main Navigation Tabs: Recipes vs Kitchen Hacks -->
     <div class="main-tabs">
-      <button class="tab-btn active" id="tabRecipesBtn">🍲 রেসিপিসমূহ (<span id="recipeCountBadge">১২</span>)</button>
-      <button class="tab-btn" id="tabHacksBtn">💡 কিচেন হ্যাকস ও সংরক্ষণ (৬)</button>
+      <button class="tab-btn active" id="tabRecipesBtn"> রেসিপিসমূহ (<span id="recipeCountBadge">১২</span>)</button>
+      <button class="tab-btn" id="tabHacksBtn">[Tip] কিচেন হ্যাকস ও সংরক্ষণ (৬)</button>
     </div>
 
     <!-- Section: Recipes List View -->
@@ -112,7 +112,7 @@
 
       <!-- Empty State -->
       <div class="no-recipes" id="noRecipes" style="display: none;">
-        <div class="no-recipes-icon">🔍</div>
+        <div class="no-recipes-icon"></div>
         <h3>কোনো রেসিপি মেলেনি</h3>
         <p>অন্য কোনো উপাদান নির্বাচন করুন অথবা সব উপাদান রিসেট করে সমস্ত রেসিপি দেখুন।</p>
         <button class="btn-view-all" id="btnViewAll">সমস্ত রেসিপি দেখুন</button>
@@ -136,24 +136,24 @@
     <div class="modal-card">
       <div class="modal-header">
         <div class="modal-title-wrap">
-          <span class="modal-icon" id="modalRecipeIcon">🍳</span>
+          <span class="modal-icon" id="modalRecipeIcon"></span>
           <div>
             <h3 class="modal-title" id="modalRecipeTitle">স্পাইসি এগ ফ্রাইড রাইস</h3>
             <span class="modal-sub" id="modalRecipeSub">Spicy Egg Fried Rice</span>
           </div>
         </div>
-        <button class="modal-close" id="modalCloseBtn">✕</button>
+        <button class="modal-close" id="modalCloseBtn"></button>
       </div>
 
       <div class="modal-meta-bar">
-        <div class="meta-item">⏱️ <span id="modalRecipeTime">১০ মিনিট</span></div>
-        <div class="meta-item">⚡ <span id="modalRecipeDiff">সহজ</span></div>
-        <div class="meta-item highlight-green">🌱 <span id="modalRecipeSaved">৩০০ গ্রাম সাশ্রয়</span></div>
+        <div class="meta-item">[Time] <span id="modalRecipeTime">১০ মিনিট</span></div>
+        <div class="meta-item"><span id="modalRecipeDiff">সহজ</span></div>
+        <div class="meta-item highlight-green"><span id="modalRecipeSaved">৩০০ গ্রাম সাশ্রয়</span></div>
       </div>
 
       <!-- Audio Reader Bar -->
       <div class="modal-audio-bar">
-        <span>🔊 বাংলায় রান্নার নিয়ম শুনুন:</span>
+        <span>বাংলায় রান্নার নিয়ম শুনুন:</span>
         <button id="recipeVoiceBtn" class="btn-voice">
           <span class="voice-btn-text">শুনুন</span>
         </button>
@@ -164,26 +164,26 @@
 
         <!-- Required Ingredients -->
         <div class="recipe-block">
-          <h4>🛒 প্রয়োজনীয় উপকরণ:</h4>
+          <h4>প্রয়োজনীয় উপকরণ:</h4>
           <ul class="ingredients-needed-list" id="modalIngredientsList"></ul>
         </div>
 
         <!-- Step by Step instructions -->
         <div class="recipe-block">
-          <h4>👨‍🍳 ধাপে ধাপে তৈরির নিয়ম:</h4>
+          <h4>‍ ধাপে ধাপে তৈরির নিয়ম:</h4>
           <ol class="steps-ordered-list" id="modalStepsList"></ol>
         </div>
 
         <!-- Pro Tip Box -->
         <div class="pro-tip-box" id="modalProTipBox">
-          <strong>💡 শেফের স্পেশাল টিপ:</strong>
+          <strong>শেফের স্পেশাল টিপ:</strong>
           <span id="modalProTipText"></span>
         </div>
       </div>
 
       <div class="modal-footer">
         <button class="btn-cook-done" id="btnCookDone">
-          <span>🎉 আমি রান্না করেছি! (সাশ্রয় পয়েন্ট যোগ করুন)</span>
+          <span>আমি রান্না করেছি! (সাশ্রয় পয়েন্ট যোগ করুন)</span>
         </button>
       </div>
     </div>

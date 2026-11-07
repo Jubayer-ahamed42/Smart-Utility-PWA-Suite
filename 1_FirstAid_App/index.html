@@ -53,7 +53,7 @@
   <div class="emergency-bar">
     <div class="emergency-bar-inner">
       <div class="emergency-alert-tag">
-        <span class="alert-blink">🚨</span> <strong>জরুরি হেল্পলাইন:</strong>
+        <span class="alert-blink"></span> <strong>জরুরি হেল্পলাইন:</strong>
       </div>
       <div class="hotline-links">
         <a href="tel:999" class="hotline-chip chip-999" title="জাতীয় জরুরি সেবা কল">
@@ -65,7 +65,7 @@
           <span class="chip-label">স্বাস্থ্য বাতায়ন</span>
         </a>
         <button id="btnCprRhythm" class="hotline-chip chip-cpr" title="সিপিআরের সঠিক রিদম শুনুন">
-          <span class="chip-num">❤️</span>
+          <span class="chip-num">️</span>
           <span class="chip-label">সিপিআর বিট (100 BPM)</span>
         </button>
       </div>
@@ -86,17 +86,17 @@
           placeholder="কী সমস্যা হয়েছে? (যেমন: পোড়া, সাপে কাটা, অজ্ঞান, শক...)" 
           autocomplete="off"
         >
-        <button id="clearSearchBtn" class="clear-search" style="display: none;">✕</button>
+        <button id="clearSearchBtn" class="clear-search" style="display: none;"></button>
       </div>
 
       <!-- Category Filter Pills -->
       <div class="category-scroll">
         <div class="category-pills" id="categoryPills">
           <button class="pill-btn active" data-category="all">সবগুলো (১৬)</button>
-          <button class="pill-btn" data-category="home">🏠 দৈনন্দিন ঘরের বিপদ</button>
-          <button class="pill-btn" data-category="bites">🐍 বিষাক্ত কামড় ও হুল</button>
-          <button class="pill-btn" data-category="critical">❤️‍🩹 চরম জরুরি অবস্থা</button>
-          <button class="pill-btn" data-category="trauma">⚡ পরিবেশ ও আঘাত</button>
+          <button class="pill-btn" data-category="home"> দৈনন্দিন ঘরের বিপদ</button>
+          <button class="pill-btn" data-category="bites"> বিষাক্ত কামড় ও হুল</button>
+          <button class="pill-btn" data-category="critical"> চরম জরুরি অবস্থা</button>
+          <button class="pill-btn" data-category="trauma">[Fast] পরিবেশ ও আঘাত</button>
         </div>
       </div>
     </section>
@@ -114,7 +114,7 @@
 
       <!-- No Results State -->
       <div class="no-results" id="noResults" style="display: none;">
-        <div class="no-results-icon">🔍</div>
+        <div class="no-results-icon"></div>
         <h3>কোনো তথ্য খুঁজে পাওয়া যায়নি</h3>
         <p>অন্য কোনো শব্দ দিয়ে সার্চ করুন অথবা সরাসরি নিচের জরুরি নম্বরে কল করুন।</p>
         <a href="tel:999" class="btn-primary-call">জরুরি ৯৯৯ কল দিন</a>
@@ -128,20 +128,20 @@
       <!-- Modal Header -->
       <div class="modal-header">
         <div class="modal-title-wrap">
-          <span class="modal-icon" id="modalIcon">🔥</span>
+          <span class="modal-icon" id="modalIcon"></span>
           <div>
             <span class="modal-category" id="modalCategory">দৈনন্দিন দুর্ঘটনা</span>
             <h3 class="modal-title" id="modalTitle">আগুনে বা গরম পানিতে পোড়া</h3>
             <span class="modal-sub" id="modalSub">Burns & Scalds</span>
           </div>
         </div>
-        <button class="modal-close" id="modalCloseBtn" aria-label="বন্ধ করুন">✕</button>
+        <button class="modal-close" id="modalCloseBtn" aria-label="বন্ধ করুন"></button>
       </div>
 
       <!-- Quick Audio Bar -->
       <div class="modal-audio-bar">
         <div class="audio-status">
-          <span class="audio-wave-icon">🔊</span>
+          <span class="audio-wave-icon"></span>
           <span id="audioStatusText">জরুরি বাংলায় শুনুন:</span>
         </div>
         <button id="voicePlayBtn" class="btn-voice">
@@ -153,14 +153,14 @@
       <div class="modal-body">
         <!-- Quick Summary Box -->
         <div class="quick-summary-box">
-          <strong>⚡ একনজরে করণীয়:</strong>
+          <strong>একনজরে করণীয়:</strong>
           <p id="modalQuickSummary">পোড়া জায়গায় সাথে সাথে একটানা ১৫-২০ মিনিট সাধারণ কলের পানি ঢালুন।</p>
         </div>
 
         <!-- Section: Do's (করণীয়) -->
         <div class="detail-block block-dos">
           <div class="block-heading">
-            <span class="block-icon do-icon">✓</span>
+            <span class="block-icon do-icon"></span>
             <h4>অবিলম্বে কী করবেন (সঠিক পদক্ষেপ)</h4>
           </div>
           <ol class="steps-list" id="modalDosList">
@@ -171,7 +171,7 @@
         <!-- Section: Don'ts (বর্জনীয় / মারাত্মক ভুল) -->
         <div class="detail-block block-donts">
           <div class="block-heading">
-            <span class="block-icon dont-icon">✕</span>
+            <span class="block-icon dont-icon"></span>
             <h4>মারাত্মক ভুল! যা ভুলেও করবেন না</h4>
           </div>
           <ul class="warning-list" id="modalDontsList">
@@ -182,7 +182,7 @@
         <!-- Section: Hospital Red Flags -->
         <div class="detail-block block-hospital">
           <div class="block-heading">
-            <span class="block-icon hospital-icon">🏥</span>
+            <span class="block-icon hospital-icon"></span>
             <h4>কখন দ্রুত হাসপাতালে নেবেন</h4>
           </div>
           <ul class="hospital-list" id="modalHospitalList">
@@ -194,7 +194,7 @@
       <!-- Modal Footer Call Action -->
       <div class="modal-footer">
         <a href="tel:999" class="btn-emergency-action">
-          <span>🚨 সাহায্য দরকার? ৯৯৯ ডায়াল করুন</span>
+          <span>সাহায্য দরকার? ৯৯৯ ডায়াল করুন</span>
         </a>
       </div>
     </div>
@@ -205,24 +205,24 @@
     <div class="modal-card cpr-card">
       <div class="modal-header">
         <div class="modal-title-wrap">
-          <span class="modal-icon">❤️‍🩹</span>
+          <span class="modal-icon">️‍</span>
           <div>
             <h3 class="modal-title">সিপিআর স্পিড গাইড</h3>
             <span class="modal-sub">সঠিক রিদমে বুকের চাপ বজায় রাখুন (১০০-১২০ BPM)</span>
           </div>
         </div>
-        <button class="modal-close" id="cprCloseBtn">✕</button>
+        <button class="modal-close" id="cprCloseBtn"></button>
       </div>
       <div class="cpr-body">
         <p class="cpr-instructions">
           রোগী অচেতন ও শ্বাসহীন হলে বুকের ঠিক মাঝখানে দুই হাতের তালু দিয়ে নিচের স্পন্দনের তালে তালে প্রতি মিনিটে ১০০-১২০ বার জোরে চাপ দিন (Push Hard & Fast)।
         </p>
         <div class="cpr-visualizer">
-          <div class="cpr-heart" id="cprHeart">💓</div>
+          <div class="cpr-heart" id="cprHeart"></div>
           <div class="cpr-bpm" id="cprBpmCount">১১০ BPM</div>
           <span class="cpr-note">প্রতিটি বিটের সাথে বুকে ২ ইঞ্চি গভীরে চাপুন</span>
         </div>
-        <button id="cprToggleBtn" class="btn-cpr-toggle">▶ বিট চালু করুন</button>
+        <button id="cprToggleBtn" class="btn-cpr-toggle"> বিট চালু করুন</button>
       </div>
     </div>
   </div>
